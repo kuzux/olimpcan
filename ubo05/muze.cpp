@@ -1,4 +1,5 @@
 #include <fstream>
+#include <iostream>
 #include <list>
 #include <utility>
 #include <map>
@@ -66,9 +67,9 @@ bool cmp(pair<string,int> s1, pair<string, int> s2){
 }
 
 void process(){
-  for(int i=0;i<N;i++)
+  for(int i=0;i<N;i++){
     dfs(i,i,0);
-  
+  }
   pair<string,int> res = *max_element(totals.begin(),totals.end(),cmp);
   write(res);
 }
@@ -76,4 +77,5 @@ void process(){
 int main(){
   read();
   process();
+  return 0;
 }
