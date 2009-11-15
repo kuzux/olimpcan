@@ -1,0 +1,537 @@
+**********************************************************************
+                           ALTIN SORULAR
+**********************************************************************
+             1'den 9'a Kadar Numaralandirilmis Dokuz Soru
+**********************************************************************
+
+Soru 1: Tek mi Cift mi?  [25 puan] [Rob Kolstad, 2009]
+
+Sarikiz'in matematik odevi olarak kendisine verilmis N (1 <= N <= 100) adet
+I (1 <= I <= 10^60) tamsayisinin tek veya cift olduklarini bulmasi gerekiyor.
+Bu konuda Sarikiz'a yardimci olacak bir program yaziniz. Programiniz her bir 
+cift sayi icin 'even', tek sayi icin 'odd' yazacak.
+
+PUAN: 25
+
+SORUNUN ISMI: evenodd
+
+GIRDI BICIMI:
+
+* Satir 1: Tek bir tamsayi: N
+
+* Satirlar 2..N+1: Satir j+1, j'inci tamsayiyi (I_j) iceriyor.
+
+ORNEK GIRDI (dosya evenodd.in):
+
+2
+1024
+5931
+
+GIRDININ ACIKLAMASI:
+
+Iki Tamsayi: 1024 ve 5931
+
+CIKTI BICIMI:
+
+* Satir 1..N: Satir j, girdideki I_j sayisinin tek veya cift olmasina gore 'even' veya 'odd', 
+		kelimelerinden birisini iceriyor.
+
+ORNEK CIKTI (dosya evenodd.out):
+
+even
+odd
+
+CIKTININ ACIKLAMASI:
+
+1024 2'ye tam olarak bolunur; 5931 ise bolunmez
+
+**********************************************************************
+
+Soru 2: Robot Saban [25 puan] [Rob Kolstad (traditional), 2009]
+
+Ali Baba okuzlerini emekliye ayirip, piyasaya yeni cikan robot
+sabanlardan bir adet satina aldi. Bu sabanlar her seferinde
+kenar uzunluklari tamsayi olan bir dikdortgen alani surebiliyorlar.
+Ali Baba robotun hangi dikdortgen alanlari surecegini belirliyor ve
+robot calismaya basliyor.
+
+Ali Babanin tarlasinin genisligi X ve uzunlugu Y (1 <= X <= 240; 
+1 <= Y <= 240). Ali Baba robot icin I (1 <= I <= 200) adet dikdortgen
+alan belirliyor. Her bir alanin sol alt ve sag ust kose noktalarinin
+koordinatlari Xll, Yll, Xur, ve Yur (1 <= Xll <= Xur; Xll <= Xur <= X;
+1 <= Yll <= Yur; Yll <= Yur <= Y) belirleniyor. Sol alt kose (Xll, Yll),
+sag ust kose (Xur, Yur). Dikdorgenler her zaman X ve Y eksenine paralel.
+Bu dikdortgenler birbirleri ile cakisabilirler.
+
+Robot isini bitirdikten sonra, tarlada surulmus olan toplam alani
+hesaplayiniz.
+
+Mesela Ali Baba'nin tarlasinin genisligi 6 ve uzunlugu 4 olsun ve 2
+dikdortgen belirlemis olsun. Ilk belirledigi dikdortgen '*' ile ve 
+ikinci dikdorgten '#' ile gosterilsin:
+
+    ......             **....             #####.
+    ......  (1,1)(2,4) **....  (1,3)(5,4) #####.
+    ......             **....             **....
+    ......             **....             **....
+
+Robotun surdugu toplam alan 14'tur.
+
+PUAN: 25
+
+SORUNUN ISMI: rplow
+
+GIRDI BICIMI:
+
+* Satir 1: Boslukla ayrilmis uc tamsayi: X, Y, ve I
+
+* Satirlar 2..I+1: Satir i+1 surulecek i'inci dikdortgeni belirten dort
+		tamsayi iceriyor: Xll, Yll, Xur, ve Yur
+
+ORNEK GIRDI (dosya rplow.in):
+
+6 4 2
+1 1 2 4
+1 3 5 4
+
+GIRDININ ACIKLAMASI:
+
+Sorudaki ornek gibi.
+
+CIKTI BICIMI:
+
+* Satir 1: Surulmus toplam alani gosteren bir tamsayi
+
+ORNEK CIKTI (dosya rplow.out):
+
+14
+
+**********************************************************************
+
+Soru 3: Ahirdaki Yanki [50 puan] [Traditional, 2009]
+
+Inekler kis gunlerinde ahirda moo yapip, seslerinin yankisini
+dinleyip vakit geciriyorlar. Sarikiz giden ses ile donen sesin
+ne kadarinin cakistigini hesaplamak istiyor.
+
+Her bir moo 1..180 kelimeden olusuyor.  Bir kelimenin sonundaki
+belli sayidaki harf ile diger kelimenin basindaki harfler ayni ise 
+bu ike kelime cakisiyor demektir.
+
+Ornek olarak asagidaki iki kelimeyi alalim:
+
+	moyooyoxyzooo
+    yzoooqyasdfljkamo
+
+Birinci kelimenin sonundaki 'yzooo' harfleri ikinci kelimenin
+basinda da bulunuyor. Ayni sekilde ikinci kelimenin soundaki 'mo'
+harfleri birinci kelimenin basida da bulunuyor. En buyuk cakisma
+'yzooo' bes harf uzunlugunda.
+
+PUAN: 50
+
+SORUNUN ISMI: echo
+
+GIRDI BICIMI:
+
+* Satirlar 1..2: Her bir satirda bir kelime veya yankisi var.
+
+ORNEK GIRDI (dosya echo.in):
+
+abcxxxxabcxabcd
+abcdxabcxxxxabcx
+
+CIKTI BICIMI:
+
+* Satir 1: Bir kelimenin basi ile diger kelimenin sonu arasinda
+		ayni olan kelimelerin maksimum uzunlugu.
+
+ORNEK CIKTI (dosya echo.out):
+
+11
+
+CIKTININ ACIKLAMASI:
+
+'abcxxxxabcx' birinci kelImenin basinda ve ikinci kelmenin sonunda bulunuyor.
+
+**********************************************************************
+
+Soru 4: Papaya Bahcesi [80 puan] [Rob Kolstad, 2009]
+
+Halk arasinda cok bilinmez ama inekler papaya meyvesini cok severler.
+Sarikiz da ara sira Ali Baba'nin papaya bahcesine gidip oradaki papayalari 
+yiyor. Ali Baba'nin bahcesi R adet satir ve C adet sutundan olusan bir
+izgara seklinde (1 <= R <= 40, 1 <= C <= 40). Her bir birim karede bir papaya
+agaci var. Agaclarda degisik sayilarda meyve var. Tarlanin sol ust kosesindeki 
+kare (1, 1), sag alt kosedeki kare (R, C).
+
+Sarikiz tarlanin sol ust kosesinden basliyor ve sag alt kosesine varana kadar
+her zaman bulundugu kareden en fazla papaya iceren komsu kareye gececek
+sekilde devam ediyor. Elbette ugradigi karelerdeki butun papayalari yiyor.
+
+Size bahcenin boyutlari ve her bir karedeki papaya sayisi F_ij (1 <= F_ij <= 100)
+verildiginde, Sarikiz'in yedigi toplam papaya sayisini hesaplayiniz. 
+Herhangi bir karenin komsularindan sadece bir tanesi karenin diger komsularindan daha 
+fazla sayida papaya iceriyor. Eger iki karenin ortak bir kenari varsa komsu sayiliyorlar.
+
+PUAN: 80
+
+SORUNUN ISMI: papaya
+
+GIRDI BICIMI:
+
+* Satir 1: Boslukla ayrilmis iki tamsayi: R ve C
+
+* Satirlar 2..R+1: Satir i+1, i'inci satiri boslukla ayrilmis C adet tamsayi
+		ile tanimliyor. Her bir tamsayi o karede kac adet papaya oldugunu
+		gosteriyor: F_i1, F_i2, ..., F_iC
+
+ORNEK GIRDI (dosya papaya.in):
+
+3 4
+3 3 4 5
+4 5 3 2
+1 7 4 2
+
+GIRDININ ACIKLAMASI:
+
+Uc satir; dort sutun. Sarikiz sol ust koseden (3) baslar.
+
+CIKTI BICIMI:
+
+* Line 1: Sarikiz'in sag alt koseye (R,C) varana kadar yedigi
+		toplam papaya sayisini gosteren bir tamsayi.
+
+ORNEK CIKTI (dosya papaya.out):
+
+39
+
+CIKTININ ACIKLAMASI:
+
+Sarikiz papayalari asagidaki gibi a'dan baslayarak harf sirasina
+gore yer:
+
+     (1,1) ---> (1,C)
+(1,1) 3a  3   4g  5h  (1,C)
+  |   4b  5c  3f  2i    |
+(R,1) 1   7d  4e  2j  (R,C)
+     (R,1) ---> (R,C)
+
+4 papaya yenilmemis olarak kalir.
+
+**********************************************************************
+
+Soru 5: Sabah Yuruyusu [100 puan] [Rob Kolstad (traditional), 2009]
+
+Sarikiz, sabahlari kalkinca bulundugu ahirdan baslayarak bir otlaga
+kadar yuruyus yapiyor. Ali Baba'nin P (1 <= P <= 1,000) adet 1'den P'ye kadar
+numaralandirilmis ahiri var. Sarikiz yuruyuse 1 numarali ahirdan basliyor ve
+yolu uzerindei ahirlara ugrayarak bir otlaga variyor. Ali Baba'nin butun ahirlari 
+P-1 adet yol ile birbirine baglanmis. Her bir ahirdan sonra yol ikiye ayriliyor.
+
+Sarikiz'in 1'inci ahirdan en uzaktaki otlaga kadar yaptigi bir yuruyuste
+toplam kac ahira ugradigini hesaplayiniz.
+
+Asagidaki ornekte ahirlar arasindaki yollar ve en uzak otlaga ulasmak
+icin gidilmesi gereken yol '#' karakteri ile gosterilmis. Yollar ahirlardan
+sonra otlaklara gidiyor. Bu otlaklar '%' karakteri ile gosterilmis.
+
+                 %                             %
+                /                             /
+      2----%   7----8----%          2----%   7####8----%
+     / \      /      \             # #      #      #
+    1   5----6        9----%      1   5####6        9----%
+     \   \    \        \           \   \    \        #
+      \   %    %        %           \   %    %        %
+       \                             \
+        3-----%                       3-----%
+         \                             \
+          4----%                        4----%
+           \                             \
+            %                             %
+
+
+Her bir ahir uc tamsayi ile gosteriliyor: Cn, D1, ve D2. Cn ahirin
+numarasi. D1 ve D2 bu ahirdan sonra gelen iki ahirin numarasi. Eger
+ahirdan sonra baska bir ahir yoksa D1 ve D2 0.
+
+PUAN: 100
+
+SORUNUN ISMI: stroll
+
+GIRDI BICIMI:
+
+* Satir 1: Tek bir tamsayi: P
+
+* Satirlar 2..P: Satir i+1, bir ahiri tarif eden boslukla ayrilmis uc
+		tamsayi iceriyor: Cn, D1, ve D2
+
+ORNEK GIRDI (dosya stroll.in):
+
+10
+7 8 0
+5 0 6
+9 0 0
+6 0 7
+3 4 0
+2 5 0
+8 0 9
+4 0 0
+1 2 3
+
+GIRDININ ACIKLAMASI:
+
+Soruda verilen ornek.
+
+CIKTI BICIMI:
+
+* Satir 1: Sarikiz'in en uzak otlaga varana kadar ugradigi toplam ahir
+	sayisi.
+
+ORNEK CIKTI (dosya stroll.out):
+
+7
+
+CIKTININ ACIKLAMASI:
+
+1-2-5-6-7-8-9-P en uzun yollardan bir tanesi.
+
+**********************************************************************
+
+Soru 6: Yabani Ot Istilasi [125 puan] [Rob Kolstad, 2009]
+
+Son zamanlarda Ali Baba'nin otlagini yabani otlar istila etmeye
+basladilar ve hizla yayiliyorlar. Ali Baba'nin otlagi X (1 <= X <= 100)
+genisliginde ve Y (1 <= Y <= 100) uzunlugunda bir dikdortgen alan
+seklinde. Sol alt kosesi (1, 1). Yaban otlari baslangicta (Mx,My) birim
+alanda bitiyor ve her hafta kayalik olmayan komsu kareleri istila ediyorlar.
+
+Yaban otlarinin kac haftada otlagin tamamini istila edecegini hesaplayiniz.
+
+Asagida ornek olarak genisligi 4 (X=4) ve uzunlugu 3 (Y=3) olan bir otlak
+verilmis. Haritada kayalik alanlar '*' ile gosterilmis.
+
+     ....
+     ..*.
+     .**.
+
+Eger yabani otlar (1, 1) alanindan istilaya baslarsa, istila asagida
+gosterildigi gibi genisler:
+
+     ....  ....  MMM.  MMMM  MMMM  
+     ..*.  MM*.  MM*.  MM*M  MM*M  
+     M**.  M**.  M**.  M**.  M**M  
+hafta 0     1     2     3     4
+
+4 hafta sonra otlagin tamami istila edilmis olur.
+
+PUAN: 125
+
+SORUNUN ISMI: milkweed
+
+GIRDI BICIMI:
+
+* Satir 1: Boslukla ayrilmis dort tamsayi: X, Y, Mx, ve My
+
+* Satirlar 2..Y+1: Satir y+1,  otlaktaki satir (Y+2-y)'i gosteriyor.
+		Eger normal alan ise '.', kayalik ise '*'.
+
+ORNEK GIRDI (dosya milkweed.in):
+
+4 3 1 1
+....
+..*.
+.**.
+
+CIKTI BICIMI:
+
+* Satir 1: Yaban otlarinin kac haftada otlagi istila ettigini gosteren
+	bir tamsayi. Eger otlagin tamami istila edilemiyorsa -1. Kayalik alanlar
+	otlaktan sayilmiyor.
+
+ORNEK CIKTI (dosya milkweed.out):
+
+4
+
+**********************************************************************
+
+Soru 7: Odenek [250 puan] [Brian Dean, 2004]
+
+Sarikiz ciftligin en cok sut veren inegi secildi ve Ali Baba'dan haftalik
+C (1 <= C <= 100,000,000) kurus bir odenek almaya hak kazandi.
+
+Ali Baba'nin elinde N (1 <= N <= 20) adet degisik degerli demir para var.
+Her bir paranin miktari bir onceki miktara tam olarak bolunebiliyor.
+
+Ali Baba'nin elindeki para ile en fazla hac hafta boyunca Sarikiz'a en az
+C kurus odeme yapabilecegini hesaplayiniz.
+
+PUAN: 250
+
+SORUNUN ISMI: allow
+
+GIRDI BICIMI:
+
+* Satir 1: Boslukla ayrilmis iki tamsayi: N ve C
+
+* Satirlar 2..N+1: Her bir satirda bir demir paranin degeri V (1 <= V <= 100,000,000) 
+		ve bu paradan Ali Baba'da kac adet oldugunu gosteren B (1 <= B <= 1,000,000) 
+		iki tamsayi var.
+
+ORNEK GIRDI (dosya allow.in):
+
+3 6
+10 1
+1 100
+5 120
+
+GIRDININ ACIKLAMASI:
+
+Ali Baba'nin haftalik en az 6 kurus odemesi gerekiyor. Ali Baba'nin elinde
+100 adet 1 kurus, 120 adet 5 kurus ve 1 adet 10 kurus var.
+
+CIKTI BICIMI:
+
+* Satir 1: Ali Baba'nin haftalik en az C kurus olmak sartiyla en fazla kac hafta
+		odeme yapabilecegini gosteren bir tamsayi.
+
+ORNEK CIKTI (dosya allow.out):
+
+111
+
+CIKTININ ACIKLAMASI:
+
+Ali Baba bir hafta 10 kurusluk bir para verir, 10 hafta boyunca her hafta iki adet
+5 kususluk para verir, 100 hafta boynca da her hafta bir adet 5 kurus ve 1 adet
+1 kurus verir.
+
+**********************************************************************
+
+Soru 8: Sarikiz'in Kilolari [250 puan] [Rob Kolstad (traditional), 2009]
+
+Sarikiz son zamanlarda cok kilo aldi ve bir diyete basladi. Bu diyete
+gore bir gunde en fazla H kg (5 <= H <= 45,000) saman yiyebiliyor.
+
+Ali Baba her bir ineklegine gunluk N (1 <= N <= 500) balya saman veriyor.
+Inekler bir balayayi yemege basladiklarinda, o balyayi bitirmek zorundalar.
+
+Size her bir balyanin agirligi S_i (1 <= S_i <= H) verildiginde, Sarikiz'in
+o gun H kilogrami asmamak ve yarim balya birakmamak sartiyla en fazla kac kg 
+saman yiyebilecegini hesaplayiniz.
+
+PUAN: 250
+
+SORUNUN ISMI: diet
+
+GIRDI BICIMI:
+
+* Satir 1: Boslukla ayrilmis iki tamsayi: H ve N
+
+* Satirlar 2..N+1: Satir i+1, i'inci balyanin agirligini gosteren bir tamsayi: S_i
+
+ORNEK GIRDI (dosya diet.in):
+
+56 4
+15
+19
+20
+21
+
+GIRDININ ACIKLAMASI:
+
+15, 19, 20, ve 21 kg agirliklarinda dort balya saman var. Sarikiz en fazla 56 kg
+yiyebilir.
+
+OUTPUT FORMAT:
+
+* Line 1: Sarikiz'in kendisine verilen kg sinirini asmayacak sekilde yiyebilecegi
+en fazla saman miktari.
+
+ORNEK CIKTI (dosya diet.out):
+
+56
+
+CIKTININ ACIKLAMASI:
+
+Uc balya yiyebilir (15, 20, ve 21), toplamda 56 kg.
+
+**********************************************************************
+
+Soru 9: Sicak Dalga [300 puan] [Rob Kolstad (traditional), 2009]
+
+Ali Baba, urettigi sutleri ulkedeki T (1 <= T <= 2,500) adet sehirde
+satiyor. Bu yilki sicak havalardan dolayi sutler bozulma tehlikesi yasiyorlar.
+Bu nedenle Ali Baba sutleri gidecekleri sehre en kisa yoldan gondermek
+istiyor. Sehirleri birbirine baglayan yollar ve yollarin uzunluklari
+biliniyor. 
+
+Asagida yedi sehirden olusan bir harita verilmis. Koseli parentezlerdeki
+sayilar yollarin uzunluklarini gosteriyor. Bu haritada Ali Baba'nin ciftligi
+sehir 5'te ve sutlerin gidecegi yer sehir 4.
+
+                              [1]----1---[3]-
+                             /               \
+                      [3]---6---[4]---3--[3]--4
+                     /               /       /|
+                    5         --[3]--  --[2]- |
+                     \       /        /       |
+                      [5]---7---[2]--2---[3]---
+                            |       /
+                           [1]------
+
+Sehir 5'ten, sehir 4'e giden en kisa yol 5-6-3-4, uzunluk 10:  
+3 (5->6) + 4 (6->3) + 3 (3->4) = 10.
+
+Size C (1 <= C <= 6,200) adet baglantinbin baslangic ve bitis sehirleri, ve uzunluklari
+verildiginde verilen iki sehir arasindaki en kisa yolun uzunlugunu hesaplayiniz. Her 
+bir baglanti icin uc tamsayi veriliyor: Rs, Re ve Ci. Rs'den Re'ye yolun uzunlugu Ci. 
+1 <= Rs <= T; 1 <= Re <= T) (1 <= Ci <= 1,000). Yolculuk Ts (1 <= Ts <= T) sehrinden 
+basliyor ve Te (1 <= Te <= T) sehrinde bitiyor.
+
+PUAN: 300
+
+SORUNUN ISMI: heatwv
+
+GIRDI BICIMI:
+
+* Satir 1: Boslukla ayrilmis dort tamsayi: T, C, Ts, ve Te
+
+* Satirlar 2..C+1: Satir i+1, i'inci yolu boslukla ayrilmis uc tamsayi ile tarif ediyor: 
+		Rs, Re, ve Ci
+
+ORNEK GIRDI (dosya heatwv.in):
+
+7 11 5 4
+2 4 2
+1 4 3
+7 2 2
+3 4 3
+5 7 5
+7 3 3
+6 1 1
+6 3 4
+2 4 3
+5 6 3
+7 2 1
+
+GIRDININ ACIKLAMASI:
+
+Sorudaki ornek harita.
+
+CIKTI BICIMI:
+
+* Satir 1: Te'den Ts'e giden en kisa yolun uzunlugu. Ts'den Te'e sadece bir adet
+		en kisa yol mevcut.
+        
+ORNEK CIKTI (dosya heatwv.out):
+
+7
+
+CIKTININ ACIKLAMASI:
+
+5->6->1->4 (3 + 1 + 3)
+
+**********************************************************************
+
+Translation by Osman AY
+

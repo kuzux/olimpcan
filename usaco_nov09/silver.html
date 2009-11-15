@@ -1,0 +1,315 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<meta http-equiv="Pragma" content="no-cache">
+<script language="javascript">
+<!--
+    var endtime;
+    
+    function initcount(secondsleft) {
+        var now = new Date();
+        return now.getTime() + secondsleft*1000;
+    }
+    function count1(i) { i = i - i%1; return i; } 
+    function count2(i) { i = i - i%1; if (i < 10) return "0"+i; return i; }
+    function updateclock(head, word, endtime) {
+        var now = new Date();
+        var delta = (endtime - now.getTime())/1000;
+        var s, x;
+        if(delta < 1)
+            s = head + " has ended";
+        else{
+            s = head + " ends: ";
+            s = head + ": ";
+            if(delta >= 24*3600)
+                s = s + count1(delta/86400) + "d";
+            if(delta >= 3600)
+                s = s + count2((delta/3600)%24) + "h";
+            if(delta >= 60)
+                s = s + count2((delta/60)%60) + "m";
+            s = s + count2(delta%60) + "s";
+            setTimeout("updateclock('"+head+"','"+word+"',"+endtime+")", 500);
+        }
+
+        var slot = document.getElementById(word);
+        slot.innerHTML = s;
+    }
+-->
+</script>
+
+<title>USACO Problems</title>
+<style type="text/css"><!--
+table,td,body {
+font-family: Helvetica, Verdana, Arial, SunSans-Regular, Sans-Serif;
+}
+--></style>
+</head><body onload="" background="silver_files/bg9silver.jpg">
+
+<font face="Verdana,Helvetica,Tahoma,sans-serif,Arial,Lucida Sans,Gill Sans">
+<table><tbody><tr>
+<td><img src="silver_files/cowhead2.gif">
+</td>
+<td valign="top">
+<table cellpadding="0" cellspacing="0">
+    <tbody><tr><td>Contest: NOV09 <b>SILVER</b> Division</td></tr>
+    <tr><td>Your submissions have ended</td></tr>
+    <tr><td></td></tr>
+    <tr><td></td></tr>
+    
+</tbody></table>
+</td></tr>
+</tbody></table>
+<font color="red"><b>
+</b></font>
+
+
+</font><pre>**********************************************************************
+                           SILVER PROBLEMS
+**********************************************************************
+                  Three problems numbered 6 through 8
+**********************************************************************
+
+Problem 6: A Coin Game [Osman Ay, 2009]
+
+Farmer John's cows like to play coin games so FJ has invented with
+a new two-player coin game called Xoinc for them.
+
+Initially a stack of N (5 &lt;= N &lt;= 2,000) coins sits on the ground;
+coin i from the top has integer value C_i (1 &lt;= C_i &lt;= 100,000).
+
+The first player starts the game by taking the top one or two coins
+(C_1 and maybe C_2) from the stack. If the first player takes just
+the top coin, the second player may take the following one or two
+coins in the next turn. If the first player takes two coins then
+the second player may take the top one, two, three or four coins
+from the stack. In each turn, the current player must take at least
+one coin and at most two times the amount of coins last taken by
+the opposing player. The game is over when there are no more coins
+to take.
+
+Afterwards, they can use the value of the coins they have taken
+from the stack to buy treats from FJ, so naturally, their purpose
+in the game is to maximize the total value of the coins they take.
+Assuming the second player plays optimally to maximize his own
+winnings, what is the highest total value that the first player can
+have when the game is over?
+
+MEMORY LIMIT: 20 MB
+
+PROBLEM NAME: xoinc
+
+INPUT FORMAT:
+
+* Line 1: A single integer: N
+
+* Lines 2..N+1: Line i+1 contains a single integer: C_i
+
+SAMPLE INPUT (file xoinc.in):
+
+5
+1
+3
+1
+7
+2
+
+INPUT DETAILS:
+
+There are five coins with the values 1, 3, 1, 7, and 2.
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer representing the maximum value that can be
+        made by the first player.
+
+SAMPLE OUTPUT (file xoinc.out):
+
+9
+
+OUTPUT DETAILS:
+
+The first player starts by taking a single coin (value 1). The
+opponent takes one coin as well (value 3). The first player takes
+two more coins (values 1 and 7 -- total 9). The second player gets
+the leftover coin (value 2-- total 5).
+
+**********************************************************************
+
+Problem 7: The Grand Farm-off [Haitao Mao, 2009]
+
+Farmer John owns 3*N (1 &lt;= N &lt;= 500,000) cows conveniently numbered
+1..3*N, each of which has some associated integer weight W_i (1 &lt;=
+W_i &lt;= d). He is entering the Grand Farm-off, a farming competition
+where he shows off his cows to the greater agricultural community.
+
+This competition allows him to enter a group of N cows. He has given
+each of his cows a utility rating U_i (1 &lt;= U_i &lt;= h), which
+represents the usefulness he thinks that a particular cow will have
+in the competition, and he wants his selection of cows to have the
+maximal sum of utility.
+
+There might be multiple sets of N cows that attain the maximum
+utility sum. FJ is afraid the competition may impose a total weight
+limit on the cows in the competition, so a secondary priority is
+to bring lighter weight competition cows.
+
+Help FJ find a set of N cows with minimum possible total weight
+among the sets of N cows that maximize the utility, and print the
+remainder when this total weight is divided by M (10,000,000 &lt;= M
+&lt;= 1,000,000,000).
+
+Note: to make the input phase faster, FJ has derived polynomials
+which will generate the weights and utility values for each cow.
+For each cow 0 &lt;= i &lt; 3*N,
+
+       W_i = (a*i^5+b*i^2+c) mod d
+ and   U_i = (e*i^5+f*i^3+g) mod h
+
+with reasonable ranges for the coefficients (0 &lt;= a &lt;= 1,000,000,000;
+0 &lt;= b &lt;= 1,000,000,000; 0 &lt;= c &lt;= 1,000,000,000; 0 &lt;= e &lt;=
+1,000,000,000; 0 &lt;= f &lt;= 1,000,000,000; 0 &lt;= g &lt;= 1,000,000,000;
+10,000,000 &lt;= d &lt;= 1,000,000,000; 10,000,000 &lt;= h &lt;= 1,000,000,000).
+
+The formulae do sometimes generate duplicate numbers; your algorithm
+should handle this properly.
+
+PROBLEM NAME: farmoff
+
+INPUT FORMAT:
+
+* Line 1: Ten space-separated integers: N, a, b, c, d, e, f, g, h, and
+        M
+
+SAMPLE INPUT (file farmoff.in):
+
+2 0 1 5 55555555 0 1 0 55555555 55555555
+
+INPUT DETAILS:
+
+The functions generate weights of 5, 6, 9, 14, 21, and 30 along
+with utilities of 0, 1, 8, 27, 64, and 125.
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer representing the lowest sum of the weights
+        of the N cows with the highest net utility.
+
+SAMPLE OUTPUT (file farmoff.out):
+
+51
+
+OUTPUT DETAILS:
+
+The two cows with the highest utility are cow 5 and 6, and their combined
+weight is 21+30=51.
+
+**********************************************************************
+
+Problem 8: Job Hunt [Haitao Mao, 2009]
+
+Bessie is running out of money and is searching for jobs. Farmer
+John knows this and wants the cows to travel around so he has imposed
+a rule that his cows can only make D (1 &lt;= D &lt;= 1,000) dollars in
+a city before they must work in another city. Bessie can, however,
+return to a city after working elsewhere for a while and again earn
+the D dollars maximum in that city. There is no limit on the number
+of times Bessie can do this.
+
+Bessie's world comprises P (1 &lt;= P &lt;= 150) one-way paths connecting
+C (2 &lt;= C &lt;= 220) cities conveniently numbered 1..C. Bessie is
+currently in city S (1 &lt;= S &lt;= C). Path i runs one-way from city
+A_i to city B_i (1 &lt;= A_i &lt;= C; 1 &lt;= B_i &lt;= C) and costs nothing
+to traverse.
+
+To help Bessie, Farmer John will give her access to his private jet
+service. This service features F (1 &lt;= F &lt;= 350) routes, each of
+which is a one way flight from one city J_i to a another K_i (1 &lt;=
+J_i &lt;= C; 1 &lt;= K_i &lt;= C) and which costs T_i (1 &lt;= T_i &lt;= 50,000)
+dollars. Bessie can pay for the tickets from future earnings if she
+doesn't have the cash on hand.
+
+Bessie can opt to retire whenever and wherever she wants. Given an
+unlimited amount of time, what is the most money that Bessie can
+make presuming she can make the full D dollars in each city she can
+travel to?  Print -1 if there is no limit to this amount.
+
+PROBLEM NAME: jobhunt
+
+INPUT FORMAT:
+
+* Line 1: Five space-separated integers: D, P, C, F, and S
+
+* Lines 2..P+1: Line i+1 contains two space-separated integers that
+        name a one-way path from one city to another: A_i and B_i
+
+* Lines P+2..P+F+1: Line P+i contains three space-separated integers
+        that name a one-way jet flight from one city to another and
+        the price for that flight: J_i, K_i, and T_i
+
+SAMPLE INPUT (file jobhunt.in):
+
+100 3 5 2 1
+1 5
+2 3
+1 4
+5 2 150
+2 5 120
+
+INPUT DETAILS:
+
+This world has five cities, three paths and two jet routes. Bessie
+starts out in city 1, and she can only make 100 dollars in each
+city before moving on.
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer representing the most money she can make
+        while following the law.
+
+SAMPLE OUTPUT (file jobhunt.out):
+
+250
+
+OUTPUT DETAILS:
+
+Bessie can travel from city 1 to city 5 to city 2 to city 3, and
+make a total of 4*100 - 150 = 250 dollars.
+
+**********************************************************************
+
+</pre><hr>
+Your login session has expired.<br><hr>
+<font face="Verdana,Helvetica,Tahoma,sans-serif,Arial,Lucida Sans,Gill Sans"> The following solution files are saved for grading:<br>
+<table cellspacing="2">
+<tbody><tr><th>Name</th><th>Size</th><th>When</th><th>Age</th></tr>
+<tr><td><a href="http://ace.delos.com/ioiupload?a=Ia9czuK6k5a&amp;seesaved=farmoff.c">farmoff.c</a></td>
+<td align="right">982</td>
+<td align="right">10h18:03</td>
+<td align="right">39h52:49</td></tr>
+<tr><td><a href="http://ace.delos.com/ioiupload?a=Ia9czuK6k5a&amp;seesaved=jobhunt.c">jobhunt.c</a></td>
+<td align="right">1054</td>
+<td align="right">11h17:39</td>
+<td align="right">38h53:13</td></tr>
+</tbody></table>
+</font><hr>
+<center>
+<font face="Verdana,Helvetica,Tahoma,sans-serif,Arial,Lucida Sans,Gill Sans"><a href="http://ace.delos.com/ioiedit?a=Ia9czuK6k5a">Edit your database record</a>&nbsp;|&nbsp;
+
+<a href="http://ace.delos.com/ioiupload?a=Ia9czuK6k5a&amp;logout=1"> Logout </a>
+<!--<a href="https://ace.delos.com/rules.html" target="_blank"> Rules </a>-->
+&nbsp;|&nbsp;
+<a href="http://ace.delos.com/ioiupload?init=1&amp;a=Ia9czuK6k5a">Main contest index</a>
+</font></center>
+<!--&nbsp;|&nbsp;-->
+<center>
+<font face="Verdana,Helvetica,Tahoma,sans-serif,Arial,Lucida Sans,Gill Sans"><a href="http://ace.delos.com/ioiupload?a=Ia9czuK6k5a&amp;showsubmit">See submitted solutions</a>
+&nbsp;|&nbsp;
+<a href="http://ace.delos.com/ioiupload?a=Ia9czuK6k5a&amp;suggestionbox">Send message
+to operations staff</a>
+&nbsp;|&nbsp;
+Phone: +1 719-481-6542
+<br>
+Director is not online<br>
+This page was generated at 9:10:52 GMT.
+</font></center>
+</body></html>
