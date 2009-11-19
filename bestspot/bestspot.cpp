@@ -28,7 +28,7 @@ void shortestpath(){
       if (dist[j][i])
         for (int k=0; k<P; k++)
           if (dist[i][k] && (!mat[j][key_equal] || mat[j][k]>mat[j][i]+mat[i][k]))
-            dist[j][k]=mat[j][i]+mat[i][shortestpathk];
+            dist[j][k]=mat[j][i]+mat[i][k];
   for (int i=0; i<p; i++) dist[i][i]=0;
     
 /*  for(int k=0;k<P;k++){
