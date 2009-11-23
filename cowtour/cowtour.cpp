@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <climits>
+#include <cmath>
 using namespace std;
 
 struct point{
@@ -10,15 +11,15 @@ struct point{
 };
 
 int N;
-int dist[150][150]; //uzakligin karesi
+double dist[150][150];
 int fields[150];
-int diameter[150];
-int fieldDiameter[151];
+double diameter[150];
+double fieldDiameter[151];
 point pos[150];
 
-inline int point_dist(int a, int b){
+inline double point_dist(int a, int b){
   int yd = pos[a].y-pos[b].y, xd = pos[a].x-pos[b].x;
-  return xd*xd+yd*yd;
+  return sqrt(xd*xd+yd*yd);
 }
 
 void read(){
@@ -45,7 +46,7 @@ void shortestpath(){
   for(int k=0;k<N;k++){
     for(int i=0;i<N;i++){
       for(int j=0;j<N;j++){
-        int newd = dist[i][k]+dist[k][j];
+        double newd = dist[i][k]+dist[k][j];
         if(dist[i][k]==-1||dist[j][j]==-1) newd = INT_MAX;
         dist[i][j] = min(dist[i][j], newd);
       }
@@ -86,9 +87,7 @@ void findpath(){
   Res = INT_MAX;
   for(int i=0;i<N;i++){
     for(int j=0;j<N;j++){
-      if(field[i]==field[j]) continue;
-      //(x+y+z)^2 = x^2+y^2+z^2+2xy+2xz+2yz
-      int newdiameter = diam[i]*diam[i]+diam[j]*diam[j]+
+
     }
   }
 }
